@@ -1,6 +1,6 @@
 /**
  * DONE: Update the text in the "Formatted Text" section as a user types in the textarea
- * TODO TOGETHER: Add a .bold, .italic classes to "Formatted Text" when the appropriate button is clicked
+ * DONE TOGETHER: Add a .bold, .italic classes to "Formatted Text" when the appropriate button is clicked
  * TODO: Add an .underline class to "Formatted Text" when Underline button is clicked
  * TODO: Toggle the align style for "Formatted Text" when the appropriate button is clicked
  */
@@ -9,9 +9,12 @@
  * Update the output text as a user types in the textarea
  * HINT: Use the onkeydown function inside HTML
  */
+const textarea = document.getElementById("text-input");
+const formatText = document.getElementById("text-output");
+document.addEventListener("keydown", updateText);
+
 function updateText() {
-  const text = document.getElementById("text-input").value;
-  const formatText = document.getElementById("text-output");
+  const text = textarea.value;
 
   formatText.innerText = text;
 }
@@ -23,8 +26,12 @@ function updateText() {
  * HINT: Use the classList property
  * HINT: Toggle .active class for the button
  */
-function makeBold(elem) {
+const boldBtn = document.getElementById("bold");
+boldBtn.addEventListener("click", makeBold);
+
+function makeBold() {
   //CODE GOES HERE
+  formatText.classList.add("bold");
 }
 
 /**
