@@ -31,7 +31,9 @@ boldBtn.addEventListener("click", makeBold);
 
 function makeBold() {
   //CODE GOES HERE
-  formatText.classList.add("bold");
+  formatText.classList.value.includes("bold")
+    ? formatText.classList.remove("bold")
+    : formatText.classList.add("bold");
 }
 
 /**
@@ -41,7 +43,9 @@ const italicBtn = document.getElementById("italic");
 italicBtn.addEventListener("click", makeItalic);
 
 function makeItalic() {
-  formatText.classList.add("italic");
+  formatText.classList.value.includes("italic")
+    ? formatText.classList.remove("italic")
+    : formatText.classList.add("italic");
 }
 
 /**
@@ -55,7 +59,9 @@ underlineBtn.addEventListener("click", makeUnderline);
 
 function makeUnderline() {
   //CODE GOES HERE
-  formatText.classList.add("underline");
+  formatText.classList.value.includes("underline")
+    ? formatText.classList.remove("underline")
+    : formatText.classList.add("underline");
 }
 
 /**
