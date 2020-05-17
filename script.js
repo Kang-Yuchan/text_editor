@@ -37,7 +37,12 @@ function makeBold() {
 /**
  * Toggle the italic class for the output text
  */
-function makeItalic(elem) {}
+const italicBtn = document.getElementById("italic");
+italicBtn.addEventListener("click", makeItalic);
+
+function makeItalic() {
+  formatText.classList.add("italic");
+}
 
 /**
  * Toggle the underline class for the output text
