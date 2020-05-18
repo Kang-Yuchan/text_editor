@@ -2,7 +2,7 @@
  * DONE: Update the text in the "Formatted Text" section as a user types in the textarea
  * DONE TOGETHER: Add a .bold, .italic classes to "Formatted Text" when the appropriate button is clicked
  * DONE: Add an .underline class to "Formatted Text" when Underline button is clicked
- * TODO: Toggle the align style for "Formatted Text" when the appropriate button is clicked
+ * DONE: Toggle the align style for "Formatted Text" when the appropriate button is clicked
  */
 
 /**
@@ -70,6 +70,26 @@ function makeUnderline() {
  * HINT: Use the style property of the element
  * HINT: Make sure to untoggle the active state for all other align buttons
  */
-function alignText(elem, alignType) {
+function classifyType(type) {
+  if (type === "left-align") {
+    formatText.style.textAlign = "left";
+  } else if (type === "center-align") {
+    formatText.style.textAlign = "center";
+  } else if (type === "right-align") {
+    formatText.style.textAlign = "right";
+  }
+}
+function alignText(e) {
   // CODE GOES HERE
+  const btnList = document.getElementsByClassName("align");
+  const alignType = e.target.id;
+  const iconAlignType = e.target.parentNode.id;
+
+  alignType ? classifyType(alignType) : classifyType(iconAlignType);
+
+  for (let i = 0; i < btnList.length; i++) {
+    btnList[i].classList.remove("active");
+  }
+  e.target.classList.add("active");
+  e.target.parentNode.classList.add("active");
 }
