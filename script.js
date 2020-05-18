@@ -9,15 +9,13 @@
  * Update the output text as a user types in the textarea
  * HINT: Use the onkeydown function inside HTML
  */
-const textarea = document.getElementById("text-input");
 const formatText = document.getElementById("text-output");
-document.addEventListener("keydown", updateText);
 
-function updateText() {
-  const text = textarea.value;
+updateText = () => {
+  const text = document.getElementById("text-input").value;
 
   formatText.innerText = text;
-}
+};
 
 /**
  * Toggle the bold class for the output text
@@ -27,26 +25,24 @@ function updateText() {
  * HINT: Toggle .active class for the button
  */
 const boldBtn = document.getElementById("bold");
-boldBtn.addEventListener("click", makeBold);
 
-function makeBold() {
+makeBold = () => {
   //CODE GOES HERE
   formatText.classList.value.includes("bold")
     ? formatText.classList.remove("bold")
     : formatText.classList.add("bold");
-}
+};
 
 /**
  * Toggle the italic class for the output text
  */
 const italicBtn = document.getElementById("italic");
-italicBtn.addEventListener("click", makeItalic);
 
-function makeItalic() {
+makeItalic = () => {
   formatText.classList.value.includes("italic")
     ? formatText.classList.remove("italic")
     : formatText.classList.add("italic");
-}
+};
 
 /**
  * Toggle the underline class for the output text
@@ -55,14 +51,13 @@ function makeItalic() {
  * HINT: Use contains, remove, and add functions
  */
 const underlineBtn = document.getElementById("underline");
-underlineBtn.addEventListener("click", makeUnderline);
 
-function makeUnderline() {
+makeUnderline = () => {
   //CODE GOES HERE
   formatText.classList.value.includes("underline")
     ? formatText.classList.remove("underline")
     : formatText.classList.add("underline");
-}
+};
 
 /**
  * Toggle the style textAlign attribute
@@ -70,7 +65,7 @@ function makeUnderline() {
  * HINT: Use the style property of the element
  * HINT: Make sure to untoggle the active state for all other align buttons
  */
-function classifyType(type) {
+classifyType = (type) => {
   if (type === "left-align") {
     formatText.style.textAlign = "left";
   } else if (type === "center-align") {
@@ -78,8 +73,9 @@ function classifyType(type) {
   } else if (type === "right-align") {
     formatText.style.textAlign = "right";
   }
-}
-function alignText(e) {
+};
+
+alignText = (e) => {
   // CODE GOES HERE
   const btnList = document.getElementsByClassName("align");
   const alignType = e.target.id;
@@ -87,9 +83,9 @@ function alignText(e) {
 
   alignType ? classifyType(alignType) : classifyType(iconAlignType);
 
-  for (let i = 0; i < btnList.length; i++) {
-    btnList[i].classList.remove("active");
+  for (let btn of btnList) {
+    btn.classList.remove("active");
   }
-  e.target.classList.add("active");
-  e.target.parentNode.classList.add("active");
-}
+  e.target.classList.toggle("active");
+  e.target.parentNode.classList.toggle("active");
+};
